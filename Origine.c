@@ -1,6 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
-#define NUMERO_TIPI 4
-/*
+﻿/*
 Un ufficio vuole realizzare un sistema per il monitoraggio delle operazioni effettuate.
 Le operazioni che possono essere effettuate sono caratterizzate dalle seguenti informazioni
 -	Tipo di operazione (un intero compreso tra 0 e 3)
@@ -25,6 +23,9 @@ Le funzioni 2 e 3 e 4 devono essere implementate utilizzando le informazioni pre
                         cliente. In ogni elemento del vettore sar� quindi presente la lista delle operazioni
                         effettuate da un cliente.
 */
+
+#define _CRT_SECURE_NO_WARNINGS
+#define NUMERO_TIPI 4
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -75,7 +76,7 @@ int lista_inserisci_ordine(t_lista* pl, t_operazione op) {
     return lista_inserisci_ordine(&((*pl)->next),op);//devo far scorrere la lista fino a quando non entro nell'if
 }
 
-//altre funzioni di utilita  // io questa non la metterei....
+//altre funzioni di utilita
 void stampa_operazione(t_operazione op) {
     printf("\noperazione = % d, cliente % s, durata % d \n", op.tipo, op.codice, op.durata);
 }
@@ -94,7 +95,8 @@ int menu(void) {
 // Quesito 1: funzione carica 
 void carica(t_lista* vettore_liste, char* nome_file) { 
     //deferenzia la lista, nome file viene passato per puntatore (più leggero, ma sarebbe meglio mettere const affichè non possa essere modificato)
-    t_operazione op; // t_lista aux; //potevo dichiarare t_operazione op, anzichè t_lista aux, e sarebbe aux->info = op
+    t_operazione op; 
+    // t_lista aux; //potevo dichiarare t_operazione op, anzichè t_lista aux, e sarebbe aux->info = op
     FILE* f;
     f = fopen(nome_file,"r");
     
@@ -139,6 +141,7 @@ int calcolo_minuti_archivio(t_lista lista, char* codice) {
     return minuti;
 }
 
+/* TODO */
 /* Quesito 4: lista_operazioni,
 // Funzione che restituisce un vettore che contiene le liste delle operazioni effettuate dai clienti.
 // In ogni elemento del vettore sar� presente la lista delle operazioni effettuate da un cliente*/
@@ -196,10 +199,11 @@ int main(void) {
             break;
         case 4:     //inserire le istruzioni per la chiamata della funzione del quesito 4 e 
                     // la stampa dei risultati
+                    /*TODO*/
             break;
         }
     } while (scelta != 0);
 }
 
-//scrivere di seguito le implementazioni delle funzioni richieste 
+
 
